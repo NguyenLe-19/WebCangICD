@@ -515,120 +515,124 @@
 		<!-- Services Section -->
 		<section id="services" class="services section">
 
-		  <!-- Section Title -->
-		  <div class="container section-title" data-aos="fade-up">
-		    <h2>Dịch vụ của chúng tôi</h2>
-		    <p>Cảng ICD Tây Nam cung cấp giải pháp logistics toàn diện, hiện đại và chuyên nghiệp</p>
-		  </div><!-- End Section Title -->
+			<!-- Section Title -->
+			<div class="container section-title" data-aos="fade-up">
+				<h2 th:text="#{services.title}">Dịch vụ của chúng tôi</h2>
+				<p th:text="#{services.subtitle}">Cảng ICD Tây Nam cung cấp giải pháp logistics toàn diện...</p>
+			</div>
+			</div><!-- End Section Title -->
 
-		  <div class="container" data-aos="fade-up" data-aos-delay="100">
-		    <div class="row gy-4 justify-content-center">
+			<div class="container" data-aos="fade-up" data-aos-delay="100">
+				<div class="row gy-4 justify-content-center">
 
-		      <!-- 1. Địa điểm thông quan nội địa -->
-		      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-		        <article class="service-item">
-		          <span class="service-icon rounded-circle"><i class="fa-solid fa-ship"></i></span>
-		          <h3>Địa điểm thông quan nội địa</h3>
-		          <p>Thực hiện thông quan hàng hóa xuất nhập khẩu nhanh chóng ngay tại cảng ICD.</p>
-		        </article>
-		      </div>
+					<!-- 1. Địa điểm thông quan nội địa -->
+					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+						<article class="service-item">
+							<span class="service-icon rounded-circle"><i class="fa-solid fa-ship"></i></span>
+							<h3 th:text="#{services.item1.title}">Địa điểm thông quan nội địa</h3>
+							<p th:text="#{services.item1.desc}">Thực hiện thông quan hàng hóa xuất nhập khẩu...</p>
+						</article>
+					</div>
 
-		      <!-- 2. Đóng rút hàng tại bãi -->
-		      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
-		        <article class="service-item">
-		          <span class="service-icon rounded-circle"><i class="bi bi-box-seam"></i></span>
-		          <h3>Đóng rút hàng tại bãi</h3>
-		          <p>Dịch vụ đóng và rút hàng chuyên nghiệp, an toàn tại khu vực bãi container.</p>
-		        </article>
-		      </div>
+					<!-- 2. Đóng rút hàng tại bãi -->
+					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
+						<article class="service-item">
+							<span class="service-icon rounded-circle"><i class="bi bi-box-seam"></i></span>
+							<h3 th:text="#{services.item2.title}">Đóng rút hàng tại bãi</h3>
+							<p th:text="#{services.item2.desc}">Dịch vụ đóng và rút hàng chuyên nghiệp...</p>
+						</article>
+					</div>
 
-		      <!-- 3. Bãi chứa container hàng và rỗng -->
-		      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="140">
-		        <article class="service-item">
-		          <span class="service-icon rounded-circle"><i class="bi bi-stack"></i></span>
-		          <h3>Bãi chứa container</h3>
-		          <p>Bãi chứa container hàng và rỗng rộng rãi, được quản lý bằng hệ thống hiện đại.</p>
-		        </article>
-		      </div>
+					<!-- 3. Bãi chứa container hàng và rỗng -->
+					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="140">
+						<article class="service-item">
+							<span class="service-icon rounded-circle"><i class="bi bi-stack"></i></span>
+							<h3 th:text="#{services.item3.title}">Bãi chứa container</h3>
+							<p th:text="#{services.item3.desc}">Bãi chứa container hàng và rỗng...</p>
+						</article>
+					</div>
 
-		      <!-- 4. Thủ tục Hải quan -->
-		      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
-		        <article class="service-item">
-		          <span class="service-icon rounded-circle"><i class="bi bi-file-earmark-check"></i></span>
-		          <h3>Thủ tục Hải quan</h3>
-		          <p>Hỗ trợ khai báo và xử lý thủ tục Hải quan nhanh chóng, chính xác.</p>
-		        </article>
-		      </div>
 
-		      <!-- 5. Kho đóng hàng lẻ (CFS) -->
-		      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
-		        <article class="service-item">
-		          <span class="service-icon rounded-circle"><i class="bi bi-boxes"></i></span>
-		          <h3>Kho đóng hàng lẻ (CFS)</h3>
-		          <p>Lưu trữ và xử lý hàng lẻ chuyên nghiệp, đảm bảo an toàn và hiệu quả.</p>
-		        </article>
-		      </div>
+					<!-- 4. Thủ tục Hải quan -->
+					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
+						<article class="service-item">
+							<span class="service-icon rounded-circle"><i class="bi bi-file-earmark-check"></i></span>
+							<h3 th:text="#{services.item4.title}">Thủ tục Hải quan</h3>
+							<p th:text="#{services.item4.desc}">Hỗ trợ khai báo và xử lý thủ tục...</p>
+						</article>
+					</div>
 
-		      <!-- 6. Kho ngoại quan -->
-		      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-		        <article class="service-item">
-		          <span class="service-icon rounded-circle"><i class="bi bi-house-door"></i></span>
-		          <h3>Kho ngoại quan</h3>
-		          <p>Lưu trữ hàng hóa chưa làm thủ tục nhập khẩu theo quy định hiện hành.</p>
-		        </article>
-		      </div>
+					<!-- 5. Kho đóng hàng lẻ (CFS) -->
+					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+						<article class="service-item">
+							<span class="service-icon rounded-circle"><i class="bi bi-boxes"></i></span>
+							<h3 th:text="#{services.item5.title}">Kho đóng hàng lẻ (CFS)</h3>
+							<p th:text="#{services.item5.desc}">Lưu trữ và xử lý hàng lẻ chuyên nghiệp...</p>
+						</article>
+					</div>
 
-		      <!-- 7. Xếp dỡ container -->
-		      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="220">
-		        <article class="service-item">
-		          <span class="service-icon rounded-circle"><i class="bi bi-truck-flatbed"></i></span>
-		          <h3>Xếp dỡ container</h3>
-		          <p>Dịch vụ nâng, hạ và sắp xếp container bằng thiết bị chuyên dụng hiện đại.</p>
-		        </article>
-		      </div>
+					<!-- 6. Kho ngoại quan -->
+					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+						<article class="service-item">
+							<span class="service-icon rounded-circle"><i class="bi bi-house-door"></i></span>
+							<h3 th:text="#{services.item6.title}">Kho ngoại quan</h3>
+							<p th:text="#{services.item6.desc}">Lưu trữ hàng hóa chưa làm thủ tục...</p>
+						</article>
+					</div>
 
-		      <!-- 8. Dịch vụ container lạnh -->
-		      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="240">
-		        <article class="service-item">
-		          <span class="service-icon rounded-circle"><i class="bi bi-snow"></i></span>
-		          <h3>Container lạnh</h3>
-		          <p>Quản lý và cấp điện cho container lạnh đảm bảo chất lượng hàng hóa.</p>
-		        </article>
-		      </div>
+					<!-- 7. Xếp dỡ container -->
+					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="220">
+						<article class="service-item">
+							<span class="service-icon rounded-circle"><i class="bi bi-truck-flatbed"></i></span>
+							<h3 th:text="#{services.item7.title}">Xếp dỡ container</h3>
+							<p th:text="#{services.item7.desc}">Dịch vụ nâng, hạ và sắp xếp container...</p>
+						</article>
+					</div>
 
-		      <!-- 9. Vệ sinh, sửa chữa và bảo dưỡng container -->
-		      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="260">
-		        <article class="service-item">
-		          <span class="service-icon rounded-circle"><i class="bi bi-tools"></i></span>
-		          <h3>Bảo dưỡng container</h3>
-		          <p>Dịch vụ vệ sinh, sửa chữa và bảo trì container ngay tại bãi ICD.</p>
-		        </article>
-		      </div>
 
-		      <!-- 10. Giao nhận hàng hóa XNK -->
-		      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="280">
-		        <article class="service-item">
-		          <span class="service-icon rounded-circle"><i class="bi bi-send-check"></i></span>
-		          <h3>Giao nhận hàng XNK</h3>
-		          <p>Nhận và giao hàng tận nơi, kết nối vận chuyển nội địa và quốc tế.</p>
-		        </article>
-		      </div>
+					<!-- 8. Dịch vụ container lạnh -->
+					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="240">
+						<article class="service-item">
+							<span class="service-icon rounded-circle"><i class="bi bi-snow"></i></span>
+							<h3 th:text="#{services.item8.title}">Container lạnh</h3>
+							<p th:text="#{services.item8.desc}">Quản lý và cấp điện cho container lạnh...</p>
+						</article>
+					</div>
 
-		      <!-- 11. Vận chuyển hàng hóa nội địa -->
-		      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-		        <article class="service-item">
-		          <span class="service-icon rounded-circle"><i class="bi bi-truck"></i></span>
-		          <h3>Vận chuyển nội địa</h3>
-		          <p>Cung cấp phương tiện vận tải container và hàng lẻ khắp cả nước.</p>
-		        </article>
-		      </div>
 
-		    </div>
-		  </div>
+					<!-- 9. Vệ sinh, sửa chữa và bảo dưỡng container -->
+					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="260">
+						<article class="service-item">
+							<span class="service-icon rounded-circle"><i class="bi bi-tools"></i></span>
+							<h3 th:text="#{services.item9.title}">Bảo dưỡng container</h3>
+							<p th:text="#{services.item9.desc}">Dịch vụ vệ sinh, sửa chữa và bảo trì container...</p>
+						</article>
+					</div>
+
+					<!-- 10. Giao nhận hàng hóa XNK -->
+					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="280">
+						<article class="service-item">
+							<span class="service-icon rounded-circle"><i class="bi bi-send-check"></i></span>
+							<h3 th:text="#{services.item10.title}">Giao nhận hàng XNK</h3>
+							<p th:text="#{services.item10.desc}">Nhận và giao hàng tận nơi...</p>
+						</article>
+					</div>
+
+					<!-- 11. Vận chuyển hàng hóa nội địa -->
+					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+						<article class="service-item">
+							<span class="service-icon rounded-circle"><i class="bi bi-truck"></i></span>
+							<h3 th:text="#{services.item11.title}">Vận chuyển nội địa</h3>
+							<p th:text="#{services.item11.desc}">Cung cấp phương tiện vận tải container...</p>
+						</article>
+					</div>
+
+				</div>
+			</div>
 
 		</section>
 
-		
+
 		<!-- /Services Section -->
 
 		<!-- Alt Services Section -->

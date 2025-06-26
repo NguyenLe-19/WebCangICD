@@ -4188,3 +4188,13 @@ section,
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
+/* CSS – đảm bảo các cột card service-section có cùng chiều cao */
+.row.gy-4 .col-lg-4 {
+  display: flex;
+}
+
+.service-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

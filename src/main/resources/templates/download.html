@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Download Files</title></head>
+<body>
+<h2>Danh sách tài liệu</h2>
+<table>
+    <tr>
+        <th>Tên File</th>
+        <th>Loại</th>
+        <th>Tải về</th>
+    </tr>
+    <tr th:each="file : ${files}">
+        <td th:text="${file.fileName}"></td>
+        <td th:text="${file.fileType}"></td>
+        <td>
+            <a th:href="@{/files/{id}/download(id=${file.id})}">Tải xuống</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

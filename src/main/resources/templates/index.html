@@ -179,10 +179,10 @@
 							</div>
 
 							<div class="d-flex align-items-start mt-3 gap-3">
-								<img src="/assets/img/about_depot.png" alt="Depot Bình Dương" class="rounded-4 shadow"
-									style="width: 400px; height: 240px; object-fit: cover;">
-								<img src="/assets/img/about_depot2.png" alt="Depot Bình Dương" class="rounded-4 shadow"
-									style="width: 400px; height: 240px; object-fit: cover;">
+								<img id="about-image-1" src="/assets/img/about_depot.png" alt="Depot Bình Dương"
+									class="rounded-4 shadow" style="width: 400px; height: 240px; object-fit: cover;" />
+								<img id="about-image-2" src="/assets/img/about_depot2.png" alt="Depot Bình Dương"
+									class="rounded-4 shadow" style="width: 400px; height: 240px; object-fit: cover;" />
 							</div>
 
 						</div>
@@ -636,7 +636,34 @@
 		<!-- /Contact Section -->
 
 	</main>
+	<script>
 
+		const images = [
+			'/assets/img/about_depot.png',
+			'/assets/img/about_depot2.png',
+			'/assets/img/about_depot3.png',  // giả sử bạn có thêm ảnh
+			'/assets/img/about_depot4.png'
+		];
+
+
+		const imgElement1 = document.getElementById('about-image-1');
+		let currentImageIndex = 0;
+
+		setInterval(() => {
+			currentImageIndex = (currentImageIndex + 1) % images.length;  // quay vòng
+			imgElement1.src = images[currentImageIndex];
+		}, 2000);  // 2000ms = 2 giây
+
+		const imgElement2 = document.getElementById('about-image-2');
+		let currentImageIndex2 = 1; // bắt đầu từ ảnh thứ 2 ví dụ
+
+		setInterval(() => {
+			currentImageIndex2 = (currentImageIndex2 + 1) % images.length;
+			imgElement2.src = images[currentImageIndex2];
+		}, 2000);
+
+
+	</script>
 
 	<div th:replace="fragments/footer :: footer"></div>
 

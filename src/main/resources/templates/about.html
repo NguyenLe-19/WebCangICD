@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Về Chúng Tôi</title>
+	<link rel="stylesheet" href="/assets/css/style.css">
+
+	
+	<div th:replace="fragments/head :: head"></div>
+
+</head>
+
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div th:replace="fragments/nav :: nav(currentPage='about')"></div>
+
+	
+	<main class="main">
+		<!-- About Section -->
+
+
+				<section id="about" class="about section light-background">
+					<div class="container section-title" data-aos="fade-up">
+						<h2 th:text="#{about.section.title}">Về Chúng Tôi</h2>
+						<p th:text="#{about.section.subtitle}">Đơn vị khai thác và vận hành Cảng ICD hiện đại tại TP.HCM & Bình
+							Dương</p>
+					</div>
+
+					<div class="container" data-aos="fade-up" data-aos-delay="100">
+						<div class="row gy-4 align-items-center justify-content-between">
+							<div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
+								<span class="about-meta" th:text="#{about.meta}">TỔNG QUAN</span>
+								<h2 class="about-title" th:text="#{about.title}">ICD Tanamexco - Giải pháp logistics toàn diện
+								</h2>
+								<p class="about-description" th:text="#{about.description}">ICD Tanamexco có 2 cơ sở...</p>
+
+								<div class="row feature-list-wrapper">
+									<div class="col-md-6">
+										<ul class="feature-list">
+											<li><i class="bi bi-check-circle-fill"></i> <span th:text="#{about.feature.1}">13,2
+													ha...</span></li>
+											<li><i class="bi bi-check-circle-fill"></i> <span th:text="#{about.feature.2}">Kết
+													nối...</span></li>
+											<li><i class="bi bi-check-circle-fill"></i> <span th:text="#{about.feature.3}">Tiếp
+													nhận...</span></li>
+										</ul>
+									</div>
+									<div class="col-md-6">
+										<ul class="feature-list">
+											<li><i class="bi bi-check-circle-fill"></i> <span
+													th:text="#{about.feature.4}">11.000 TEU...</span></li>
+											<li><i class="bi bi-check-circle-fill"></i> <span th:text="#{about.feature.5}">PTI
+													container...</span></li>
+											<li><i class="bi bi-check-circle-fill"></i> <span th:text="#{about.feature.6}">Đội
+													ngũ...</span></li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="info-wrapper">
+									<div class="row gy-4">
+										<div class="col-lg-5">
+											<div class="profile d-flex align-items-center gap-3">
+												<img src="assets/img/person/person-m-2.webp" alt="CEO Profile"
+													class="profile-image">
+												<div>
+													<h4 class="profile-name" th:text="#{about.contact.ceo}">Nguyễn Văn A</h4>
+													<p class="profile-position" th:text="#{about.contact.position}">Tổng Giám
+														đốc</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-lg-7">
+											<div class="contact-info d-flex align-items-center gap-2">
+												<i class="bi bi-telephone-fill"></i>
+												<div>
+													<p class="contact-label" th:text="#{about.contact.label}">Liên hệ tư vấn</p>
+													<p class="contact-number">+84 28 1234 5678</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="col-xl-6" data-aos="fade-up" data-aos-delay="300">
+								<div class="image-wrapper position-relative" style="max-width: 100%; overflow: visible;">
+									<div class="main-video mb-4">
+										<video style="width: 816px; height: auto; max-height: 360px;" class="rounded-4 shadow"
+											controls autoplay muted>
+											<source src="/assets/video/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+											<p th:text="#{video.unsupported}">Trình duyệt không hỗ trợ video.</p>
+										</video>
+									</div>
+
+									<div class="d-flex align-items-start mt-3 gap-3">
+										<img src="/assets/img/about_depot.png" alt="Depot Bình Dương" class="rounded-4 shadow"
+											style="width: 400px; height: 240px; object-fit: cover;">
+										<img src="/assets/img/about_depot2.png" alt="Depot Bình Dương" class="rounded-4 shadow"
+											style="width: 400px; height: 240px; object-fit: cover;">
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</section>
+
+				<!-- /About Section -->
+
+	</main>
+	<div th:replace="fragments/script :: script"></div>
+
+	
+</body>
+
+</html>

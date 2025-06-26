@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Văn bản pháp luật</title>
+	<link rel="stylesheet" href="/assets/css/style.css">
+
+	
+	<div th:replace="fragments/head :: head"></div>
+
+</head>
+
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div th:replace="fragments/nav :: nav(currentPage='legal-documents')"></div>
+
+	
+	<main class="main">
+		<!-- Nội dung trang -->
+		<section id="legal-documents" class="section">
+			<div class="container" data-aos="fade-up">
+				<div class="section-title text-center">
+					<h2>Văn bản pháp lý</h2>
+					<p>Các văn bản quy định pháp luật liên quan đến lĩnh vực hoạt động của công ty</p>
+				</div>
+				<!-- Table nội dung ở đây -->
+				<div class="table-responsive">
+					<table class="table table-bordered table-hover align-middle text-start">
+						<thead class="table-light">
+							<tr>
+								<th scope="col">Số hiệu</th>
+								<th scope="col">Ngày</th>
+								<th scope="col">Nơi ban hành</th>
+								<th scope="col">Trích yếu</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>39/2018/TT-BTC</td>
+								<td>20-04-2018</td>
+								<td>Bộ Tài Chính</td>
+								<td>
+									Sửa đổi, bổ sung một số điều tại Thông tư số 38/2015/TT-BTC ngày 25 tháng 3 năm 2015
+									của Bộ trưởng Bộ Tài chính quy định về thủ tục hải quan; kiểm tra, giám sát hải
+									quan; thuế xuất khẩu, thuế nhập khẩu và quản lý thuế đối với hàng hóa xuất khẩu,
+									nhập khẩu
+								</td>
+							</tr>
+							<tr>
+								<td>68/2016/NĐ-CP</td>
+								<td>01-07-2016</td>
+								<td>Chính phủ</td>
+								<td>
+									Nghị định 68/2016/NĐ-CP quy định về điều kiện kinh doanh hàng miễn thuế, kho bãi,
+									địa điểm làm thủ tục hải quan, tập kết, kiểm tra, giám sát hải quan
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+	</main>
+	<div th:replace="fragments/script :: script"></div>
+
+	
+</body>
+
+</html>

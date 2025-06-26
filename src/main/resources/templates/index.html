@@ -8,139 +8,15 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 
-	<!-- Favicons -->
-	<link rel="icon" th:href="@{/assets/img/ICD_logo-removebg-preview.png}" type="image/png">
+	<div th:replace="fragments/head :: head"></div>
 
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
-	<!-- Fonts -->
-	<link href="https://fonts.googleapis.com" rel="preconnect">
-	<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-		rel="stylesheet">
-
-	<!-- Vendor CSS Files -->
-	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-	<link href="assets/vendor/aos/aos.css" rel="stylesheet">
-	<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-	<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-
-	<!-- Main CSS File -->
-	<link href="assets/css/main.css" rel="stylesheet">
 
 </head>
 
 <body class="index-page">
 
-	<header id="header" style="background-color: #014f86; color: white;">
-		<div class="container-fluid container-xl d-flex align-items-center justify-content-between py-2">
-
-			<!-- Logo bên trái -->
-			<div class="d-flex align-items-center me-3" style="min-width: 150px;">
-				<img src="/assets/img/ICD_logo-removebg-preview.png" alt="Logo" style="height: 100px;">
-			</div>
-
-			<!-- Tên công ty -->
-			<div class="flex-grow-1 mx-4">
-				<!-- Tên công ty -->
-				<div class="company-name text-white fw-bold" style="font-size: 1.5rem;" th:text="#{header.companyName}">
-					CÔNG TY TNHH MTV CẢNG ICD TÂY NAM
-				</div>
-
-				<!-- Slogan -->
-				<div class="scrolling-wrapper mt-1">
-					<div class="scrolling-text" th:text="#{header.slogan}">
-						SỰ HÀI LÒNG CỦA KHÁCH HÀNG LÀ THÀNH CÔNG CỦA CHÚNG TÔI
-					</div>
-				</div>
-			</div>
-
-			<style>
-				.scrolling-wrapper {
-					height: 30px;
-					overflow: hidden;
-					position: relative;
-					white-space: nowrap;
-				}
-
-				.scrolling-text {
-					display: inline-block;
-					padding-left: 100%;
-					font-weight: 500;
-					font-size: 1.1rem;
-					color: #ffffff;
-					animation: scroll-left 9s linear infinite;
-				}
-
-				@keyframes scroll-left {
-					0% {
-						transform: translateX(0%);
-					}
-
-					100% {
-						transform: translateX(-100%);
-					}
-				}
-
-				@media (max-width: 768px) {
-					.company-name {
-						font-size: 1.2rem;
-					}
-
-					.scrolling-text {
-						font-size: 1rem;
-						animation-duration: 20s;
-					}
-				}
-			</style>
-		</div>
-	</header>
-
-	<!-- Navigation -->
-	<nav id="navmenu" class="navmenu sticky-top" style="background-color: #013a63;">
-		<ul class="nav-center">
-			<li><a href="#hero" class="active" th:text="#{menu.home}">Home</a></li>
-			<li><a href="#about" th:text="#{menu.about}">About</a></li>
-			<li><a href="#services" th:text="#{menu.services}">Services</a></li>
-			<li><a href="#portfolio" th:text="#{menu.portfolio}">Portfolio</a></li>
-			<li><a href="#team" th:text="#{menu.team}">Team</a></li>
-			<li class="dropdown">
-				<a href="#"><span th:text="#{menu.dropdown}">Dropdown</span> <i
-						class="bi bi-chevron-down toggle-dropdown"></i></a>
-				<ul>
-					<li><a href="#" th:text="#{menu.dropdown1}">Dropdown 1</a></li>
-					<li class="dropdown">
-						<a href="#"><span th:text="#{menu.deepdropdown}">Deep Dropdown</span> <i
-								class="bi bi-chevron-down toggle-dropdown"></i></a>
-						<ul>
-							<li><a href="#" th:text="#{menu.deep1}">Deep Dropdown 1</a></li>
-							<li><a href="#" th:text="#{menu.deep2}">Deep Dropdown 2</a></li>
-							<li><a href="#" th:text="#{menu.deep3}">Deep Dropdown 3</a></li>
-							<li><a href="#" th:text="#{menu.deep4}">Deep Dropdown 4</a></li>
-							<li><a href="#" th:text="#{menu.deep5}">Deep Dropdown 5</a></li>
-						</ul>
-					</li>
-					<li><a href="#" th:text="#{menu.dropdown2}">Dropdown 2</a></li>
-					<li><a href="#" th:text="#{menu.dropdown3}">Dropdown 3</a></li>
-					<li><a href="#" th:text="#{menu.dropdown4}">Dropdown 4</a></li>
-				</ul>
-			</li>
-
-			<li><a href="#contact" th:text="#{menu.contact}">Contact</a></li>
-			<li>
-				<a href="?lang=en">EN</a>
-			</li>
-			<li>
-				<a href="?lang=vi">VI</a>
-			</li>
-		</ul>
-		<i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-	</nav>
-
+	<div th:replace="fragments/header :: header"></div>
+	<div th:replace="fragments/nav :: nav(currentPage='home')"></div>
 
 	<main class="main">
 
@@ -572,6 +448,8 @@
 
 
 		<!-- /Services Section -->
+
+
 
 
 
@@ -1634,25 +1512,8 @@
 
 	</footer>
 
-	<!-- Scroll Top -->
-	<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-			class="bi bi-arrow-up-short"></i></a>
+	<div th:replace="fragments/script :: script"></div>
 
-	<!-- Preloader -->
-	<div id="preloader"></div>
-
-	<!-- Vendor JS Files -->
-	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/vendor/php-email-form/validate.js"></script>
-	<script src="assets/vendor/aos/aos.js"></script>
-	<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-	<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-	<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-	<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-	<!-- Main JS File -->
-	<script src="assets/js/main.js"></script>
 
 </body>
 

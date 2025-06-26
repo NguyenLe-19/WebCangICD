@@ -1,0 +1,39 @@
+<!-- fragments/nav.html -->
+<th:block th:fragment="nav(currentPage)">
+  <nav id="navmenu" class="navmenu sticky-top" style="background-color: #013a63;">
+    <ul class="nav-center">
+      <li><a href="/Home" th:classappend="${currentPage == 'home'} ? 'active'" th:text="#{menu.home}">Home</a></li>
+      <li><a href="/About" th:classappend="${currentPage == 'about'} ? 'active'" th:text="#{menu.about}">About</a></li>
+      <li><a href="/Service" th:classappend="${currentPage == 'service'} ? 'active'" th:text="#{menu.services}">Services</a></li>
+      <li><a href="/portfolio" th:classappend="${currentPage == 'portfolio'} ? 'active'" th:text="#{menu.portfolio}">Portfolio</a></li>
+      <li><a href="/team" th:classappend="${currentPage == 'team'} ? 'active'" th:text="#{menu.team}">Team</a></li>
+      <li class="dropdown">
+        <a href="#"><span th:text="#{menu.dropdown}">Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+        <ul>
+          <li><a href="#" th:text="#{menu.dropdown1}">Upload File</a></li>
+          <li class="dropdown">
+            <a href="#"><span th:text="#{menu.deepdropdown}">Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="#" th:text="#{menu.deep1}">Deep Dropdown 1</a></li>
+              <li><a href="#" th:text="#{menu.deep2}">Deep Dropdown 2</a></li>
+              <li><a href="#" th:text="#{menu.deep3}">Deep Dropdown 3</a></li>
+              <li><a href="#" th:text="#{menu.deep4}">Deep Dropdown 4</a></li>
+              <li><a href="#" th:text="#{menu.deep5}">Deep Dropdown 5</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/legal-documents" th:classappend="${currentPage == 'legal-documents'} ? 'active'" th:text="#{menu.dropdown2}">
+              Legal documents
+            </a>
+          </li>
+          <li><a href="#" th:text="#{menu.dropdown3}">Dropdown 3</a></li>
+          <li><a href="#" th:text="#{menu.dropdown4}">Dropdown 4</a></li>
+        </ul>
+      </li>
+      <li><a href="/contact" th:classappend="${currentPage == 'contact'} ? 'active'" th:text="#{menu.contact}">Contact</a></li>
+      <li><a href="?lang=en">EN</a></li>
+      <li><a href="?lang=vi">VI</a></li>
+    </ul>
+    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+  </nav>
+</th:block>

@@ -25,73 +25,77 @@ import jakarta.servlet.http.HttpServletResponse;
 public class FileController {
 
 	@Value("${file.upload-dir}")
-    private String uploadDir;
+	private String uploadDir;
 
-    private final UploadedFileService fileRepo;
+	private final UploadedFileService fileRepo;
 
-    public FileController(UploadedFileService fileRepo) {
-        this.fileRepo = fileRepo;
-    }
+	public FileController(UploadedFileService fileRepo) {
+		this.fileRepo = fileRepo;
+	}
 
-    @GetMapping("/admin/upload")
-    public String showUploadForm() {
-        return "upload";
-    }
+	@GetMapping("/admin/upload")
+	public String showUploadForm() {
+		return "upload";
+	}
 
-    @PostMapping("/admin/upload")
-    public String uploadFile(@RequestParam("file") MultipartFile file, Model model) throws IOException {
-        if (file.isEmpty()) {
-            model.addAttribute("message", "Chưa chọn file!");
-            return "upload";
-        }
+	@PostMapping("/admin/upload")
+	public String uploadFile(@RequestParam("file") MultipartFile file, Model model) throws IOException {
+		if (file.isEmpty()) {
+			model.addAttribute("message", "Chưa chọn file!");
+			return "upload";
+		}
 
-        // Tạo tên file duy nhất
-        String originalFileName = file.getOriginalFilename();
-        String storedFileName = UUID.randomUUID() + "_" + originalFileName;
+		String originalFileName = file.getOriginalFilename();
+		String storedFileName = UUID.randomUUID() + "_" + originalFileName;
 
-        // Đường dẫn lưu thực tế trên ổ đĩa
-        Path uploadPath = Paths.get(uploadDir);
-        Path filePath = uploadPath.resolve(storedFileName);
+		Path uploadPath = Paths.get(uploadDir);
+		Path filePath = uploadPath.resolve(storedFileName);
 
-        // Lưu file vào thư mục uploads
-        Files.copy(file.getInputStream(), filePath);
+		// Kiểm tra thư mục uploads tồn tại, nếu chưa có thì tạo
+		if (!Files.exists(uploadPath)) {
+			Files.createDirectories(uploadPath);
+		}
 
-        // Tạo entity lưu vào DB
-        UploadedFile uploaded = new UploadedFile();
-        uploaded.setFileName(originalFileName);
-        uploaded.setFileType(file.getContentType());
-        uploaded.setUploadPath("uploads/" + storedFileName); // lưu đường dẫn tương đối
-        uploaded.setUploadDate(new Date());
+		// Lưu file, nếu file đã tồn tại thì ghi đè (hoặc bạn có thể đổi tên khác)
+		Files.copy(file.getInputStream(), filePath);
 
-        fileRepo.save(uploaded);
-        model.addAttribute("message", "Tải lên thành công!");
+		UploadedFile uploaded = new UploadedFile();
+		uploaded.setFileName(originalFileName);
+		uploaded.setFileType(file.getContentType());
+		uploaded.setUploadPath("uploads/" + storedFileName);
+		uploaded.setUploadDate(new Date());
 
-        return "upload";
-    }
+		fileRepo.save(uploaded);
 
+		// Trả về lại form upload và thêm message thành công
+		model.addAttribute("message", "Tải lên thành công: " + originalFileName);
 
-    @GetMapping("/files")
-    public String listFiles(Model model) {
-        model.addAttribute("files", fileRepo.findAll());
-        return "download";
-    }
+		// Giữ form để admin upload tiếp file khác (không redirect, vẫn render trang
+		// upload)
+		return "redirect:/admin/upload";
+	}
 
-    @GetMapping("/files/{id}/download")
-    public void download(@PathVariable Long id, HttpServletResponse response) throws IOException {
-        UploadedFile file = fileRepo.findById(id).orElseThrow();
-        Path filePath = Paths.get(file.getUploadPath()); // VD: uploads/abc_xyz.pdf
+	@GetMapping("/files")
+	public String listFiles(Model model) {
+		model.addAttribute("files", fileRepo.findAll());
+		return "download";
+	}
 
-        if (!Files.exists(filePath)) {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            response.getWriter().write("File không tồn tại!");
-            return;
-        }
+	@GetMapping("/files/{id}/download")
+	public void download(@PathVariable Long id, HttpServletResponse response) throws IOException {
+		UploadedFile file = fileRepo.findById(id).orElseThrow();
+		Path filePath = Paths.get(file.getUploadPath()); // VD: uploads/abc_xyz.pdf
 
-        response.setContentType(file.getFileType());
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getFileName() + "\"");
-        Files.copy(filePath, response.getOutputStream());
-        response.getOutputStream().flush();
-    }
+		if (!Files.exists(filePath)) {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			response.getWriter().write("File không tồn tại!");
+			return;
+		}
+
+		response.setContentType(file.getFileType());
+		response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getFileName() + "\"");
+		Files.copy(filePath, response.getOutputStream());
+		response.getOutputStream().flush();
+	}
 
 }
-

@@ -45,20 +45,30 @@ public class FileController {
             return "upload";
         }
 
-        String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
-        Path path = Paths.get(uploadDir, fileName);
-        Files.copy(file.getInputStream(), path);
+        // Tạo tên file duy nhất
+        String originalFileName = file.getOriginalFilename();
+        String storedFileName = UUID.randomUUID() + "_" + originalFileName;
 
+        // Đường dẫn lưu thực tế trên ổ đĩa
+        Path uploadPath = Paths.get(uploadDir);
+        Path filePath = uploadPath.resolve(storedFileName);
+
+        // Lưu file vào thư mục uploads
+        Files.copy(file.getInputStream(), filePath);
+
+        // Tạo entity lưu vào DB
         UploadedFile uploaded = new UploadedFile();
-        uploaded.setFileName(file.getOriginalFilename());
+        uploaded.setFileName(originalFileName);
         uploaded.setFileType(file.getContentType());
-        uploaded.setUploadPath(path.toString());
+        uploaded.setUploadPath("uploads/" + storedFileName); // lưu đường dẫn tương đối
         uploaded.setUploadDate(new Date());
 
         fileRepo.save(uploaded);
         model.addAttribute("message", "Tải lên thành công!");
+
         return "upload";
     }
+
 
     @GetMapping("/files")
     public String listFiles(Model model) {
@@ -69,11 +79,19 @@ public class FileController {
     @GetMapping("/files/{id}/download")
     public void download(@PathVariable Long id, HttpServletResponse response) throws IOException {
         UploadedFile file = fileRepo.findById(id).orElseThrow();
-        Path filePath = Paths.get(file.getUploadPath());
+        Path filePath = Paths.get(file.getUploadPath()); // VD: uploads/abc_xyz.pdf
+
+        if (!Files.exists(filePath)) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            response.getWriter().write("File không tồn tại!");
+            return;
+        }
+
         response.setContentType(file.getFileType());
         response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getFileName() + "\"");
         Files.copy(filePath, response.getOutputStream());
         response.getOutputStream().flush();
     }
+
 }
 

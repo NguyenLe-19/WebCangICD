@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Thành tích & Khen thưởng</title>
+	<div th:replace="fragments/head :: head"></div>
+</head>
+
+<body>
+
+	<div th:replace="fragments/header :: header"></div>
+	<div th:replace="fragments/nav :: nav(currentPage='awards')"></div>
+
+	<main class="main">
+		<section id="awards" class="awards section">
+			<!-- Tiêu đề section -->
+			<div class="container section-title text-center" data-aos="fade-up">
+				<h2 th:text="#{awards.title}">Thành tích & Khen thưởng</h2>
+				<p th:text="#{awards.subtitle}">
+					Những thành tựu và giải thưởng ghi nhận sự nỗ lực không ngừng của chúng tôi trong lĩnh vực
+					logistics.
+				</p>
+			</div>
+
+			<!-- Danh sách các award cards -->
+			<div class="container" data-aos="fade-up" data-aos-delay="100">
+				<div class="row gy-4">
+					<div class="col-lg-4 col-md-6 d-flex align-items-stretch" th:each="award : ${awards}">
+						<div class="icon-box shadow-sm p-4 text-center w-100">
+							<div class="icon mb-3">
+								<i class="bi bi-award fs-1 text-primary"></i>
+							</div>
+							<h4 class="fw-bold" th:text="#{${award.titleKey}}">Tiêu đề</h4>
+							<small class="text-muted d-block mb-2" th:text="${award.date}">Ngày</small>
+							<p th:text="#{${award.descriptionKey}}">Mô tả</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<div th:replace="fragments/footer :: footer"></div>
+
+	<div th:replace="fragments/script :: script"></div>
+</body>
+
+</html>

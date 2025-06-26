@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Contact</title>
+	<div th:replace="fragments/head :: head"></div>
+</head>
+
+<body>
+
+	<div th:replace="fragments/header :: header"></div>
+	<div th:replace="fragments/nav :: nav(currentPage='contact')"></div>
+
+	<main class="main">
+		<section id="contact" class="contact section light-background">
+
+			<!-- Section Title -->
+			<div class="container section-title" data-aos="fade-up">
+				<h2 th:text="#{contact.title}">Contact</h2>
+				<p th:text="#{contact.subtitle}">Subtitle here</p>
+			</div><!-- End Section Title -->
+
+			<div class="container" data-aos="fade-up" data-aos-delay="100">
+
+				<div class="row g-4 g-lg-5">
+
+					<div class="col-lg-5">
+						<div class="info-box" data-aos="fade-up" data-aos-delay="200">
+							<h3 th:text="#{contact.info.title}">Contact Info</h3>
+							<p th:text="#{contact.info.description}">Description here</p>
+
+							<div class="info-item" data-aos="fade-up" data-aos-delay="300">
+								<div class="icon-box">
+									<i class="bi bi-geo-alt"></i>
+								</div>
+								<div class="content">
+									<h4 th:text="#{contact.location.title}">Our Location</h4>
+									<p th:text="#{contact.location.line1}">Company name</p>
+									<p th:text="#{contact.location.line2}">Address</p>
+								</div>
+							</div>
+
+							<div class="info-item" data-aos="fade-up" data-aos-delay="400">
+								<div class="icon-box">
+									<i class="bi bi-telephone"></i>
+								</div>
+								<div class="content">
+									<h4 th:text="#{contact.phone.title}">Phone Number</h4>
+									<p th:text="#{contact.phone.line1}">Phone 1</p>
+									<p th:text="#{contact.phone.line2}">Phone 2</p>
+								</div>
+							</div>
+
+							<div class="info-item" data-aos="fade-up" data-aos-delay="500">
+								<div class="icon-box">
+									<i class="bi bi-envelope"></i>
+								</div>
+								<div class="content">
+									<h4 th:text="#{contact.email.title}">Email Address</h4>
+									<p th:text="#{contact.email.line1}">Email 1</p>
+									<p th:text="#{contact.email.line2}">Email 2</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-7">
+						<div class="contact-form" data-aos="fade-up" data-aos-delay="300">
+							<h3 th:text="#{contact.getintouch.title}">Get In Touch</h3>
+							<p th:text="#{contact.getintouch.description}">Description</p>
+
+							<form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
+								data-aos-delay="200">
+								<div class="row gy-4">
+
+									<div class="col-md-6">
+										<input type="text" name="name" class="form-control"
+											th:placeholder="#{contact.form.name}" required="">
+									</div>
+
+									<div class="col-md-6">
+										<input type="email" class="form-control" name="email"
+											th:placeholder="#{contact.form.email}" required="">
+									</div>
+
+									<div class="col-12">
+										<input type="text" class="form-control" name="subject"
+											th:placeholder="#{contact.form.subject}" required="">
+									</div>
+
+									<div class="col-12">
+										<textarea class="form-control" name="message" rows="6"
+											th:placeholder="#{contact.form.message}" required=""></textarea>
+									</div>
+
+									<div class="col-12 text-center">
+										<div class="loading" th:text="#{contact.form.loading}">Loading</div>
+										<div class="error-message" th:text="#{contact.form.error}"></div>
+										<div class="sent-message" th:text="#{contact.form.sent}"></div>
+
+										<button type="submit" class="btn" th:text="#{contact.form.send}">Send
+											Message</button>
+									</div>
+
+								</div>
+							</form>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+	</main>
+	<div th:replace="fragments/footer :: footer"></div>
+
+	<div th:replace="fragments/script :: script"></div>
+</body>
+
+</html>

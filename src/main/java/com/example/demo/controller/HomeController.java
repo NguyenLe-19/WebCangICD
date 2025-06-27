@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -61,9 +62,15 @@ public class HomeController {
 	}
 
 	@RequestMapping("contact")
-	public String getContact(Model model) {
+	public String getContact(Locale locale, Model model) {
 		model.addAttribute("currentPage", "contact");
-	    model.addAttribute("pageTitleKey", "page.title.contact");
+		model.addAttribute("pageTitleKey", "page.title.contact");
+
+		String currentLang = locale.getLanguage();
+
+		// Đưa vào model để Thymeleaf có thể sử dụng
+		model.addAttribute("currentLang", currentLang);
+		System.out.println("Current locale: " + locale);
 		return "contact";
 	}
 

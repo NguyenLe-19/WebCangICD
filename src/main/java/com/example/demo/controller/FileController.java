@@ -18,52 +18,101 @@ import com.example.demo.services.FileScannerService;
 
 import jakarta.servlet.http.HttpServletResponse;
 
+//@Controller
+//public class FileController {
+//
+//    private final FileScannerService fileScannerService;
+//
+//    public FileController(FileScannerService fileScannerService) {
+//        this.fileScannerService = fileScannerService;
+//    }
+//
+//    @Value("${file.upload-dir}")
+//    private String uploadDir;
+//
+//    @GetMapping("/admin/upload")
+//    public String showUploadForm() {
+//        return "upload";
+//    }
+//
+//    @GetMapping("/files")
+//    public String listFiles(Model model) {
+//        List<UploadedFile> files = fileScannerService.scanFiles();
+//        model.addAttribute("files", files);
+//        return "download";
+//    }
+//
+//    @GetMapping("/files/{id}/download")
+//    public void download(@PathVariable Long id, HttpServletResponse response) throws IOException {
+//        List<UploadedFile> files = fileScannerService.scanFiles();
+//
+//        if (id <= 0 || id > files.size()) {
+//            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+//            response.getWriter().write("File không tồn tại!");
+//            return;
+//        }
+//
+//        UploadedFile file = files.get((int) (id - 1));
+//        Path filePath = Path.of(file.getUploadPath());
+//
+//        if (!Files.exists(filePath)) {
+//            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+//            response.getWriter().write("File không tồn tại!");
+//            return;
+//        }
+//
+//        response.setContentType(file.getFileType());
+//        response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getFileName() + "\"");
+//        Files.copy(filePath, response.getOutputStream());
+//        response.getOutputStream().flush();
+//    }
+//}
+
 @Controller
 public class FileController {
 
-	@Value("${file.upload-dir}")
-	private String uploadDir;
+    private final FileScannerService fileScannerService;
 
-	@GetMapping("/admin/upload")
-	public String showUploadForm() {
-		return "upload";
-	}
+    public FileController(FileScannerService fileScannerService) {
+        this.fileScannerService = fileScannerService;
+    }
 
-	@GetMapping("/files")
-	public String listFiles(Model model) {
-	    FileScannerService scanner = new FileScannerService();
-	    List<UploadedFile> files = scanner.scanFiles();
-	    model.addAttribute("files", files);
-	    return "download";
-	}
+    @GetMapping("/files")
+    public String listFiles(Model model) {
+        List<UploadedFile> files = fileScannerService.scanFiles();
+        model.addAttribute("files", files);
+        return "download";
+    }
 
+    @GetMapping("/files/{id}/download")
+    public void download(@PathVariable Long id, HttpServletResponse response) throws IOException {
+        List<UploadedFile> files = fileScannerService.scanFiles();
 
-	@GetMapping("/files/{id}/download")
-	public void download(@PathVariable Long id, HttpServletResponse response) throws IOException {
-	    FileScannerService scanner = new FileScannerService();
-	    List<UploadedFile> files = scanner.scanFiles();
+        if (id <= 0 || id > files.size()) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            response.getWriter().write("File không tồn tại!");
+            return;
+        }
 
-	    if (id <= 0 || id > files.size()) {
-	        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-	        response.getWriter().write("File không tồn tại!");
-	        return;
-	    }
+        UploadedFile file = files.get((int) (id - 1));
+        Path filePath = Path.of(file.getUploadPath());
 
-	    UploadedFile file = files.get( (int) (id - 1));
-	    Path filePath = Path.of(file.getUploadPath());
+        if (!Files.exists(filePath)) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            response.getWriter().write("File không tồn tại!");
+            return;
+        }
 
-	    if (!Files.exists(filePath)) {
-	        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-	        response.getWriter().write("File không tồn tại!");
-	        return;
-	    }
-
-	    response.setContentType(file.getFileType());
-	    response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getFileName() + "\"");
-	    Files.copy(filePath, response.getOutputStream());
-	    response.getOutputStream().flush();
-	}
-
-
-
+        response.setContentType(file.getFileType());
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getFileName() + "\"");
+        Files.copy(filePath, response.getOutputStream());
+        response.getOutputStream().flush();
+    }
 }
+
+
+
+
+
+
+

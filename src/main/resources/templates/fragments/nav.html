@@ -10,7 +10,9 @@
       <li class="dropdown">
         <a href="#"><span th:text="#{menu.dropdown}">Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
         <ul>
-          <li><a th:href="@{/files}" th:text="#{menu.dropdown1}">Upload File</a></li>
+
+          <li><a th:href="@{/files}" th:classappend="${currentPage == 'downloadFile'} ? 'active'" th:text="#{menu.dropdown1}">Download File</a></li>
+
           <li class="dropdown">
             <a href="#"><span th:text="#{menu.deepdropdown}">Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -33,7 +35,11 @@
       <li><a th:href="@{/contact}" th:classappend="${currentPage == 'contact'} ? 'active'" th:text="#{menu.contact}">Contact</a></li>
       <li><a th:href="@{?lang=en}">EN</a></li>
       <li><a th:href="@{?lang=vi}">VI</a></li>
+
     </ul>
+
+    </ul>	
+
     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
   </nav>
 </th:block>

@@ -36,9 +36,9 @@
 								Cam kết chất lượng – hiệu quả – đúng tiến độ.
 							</p>
 							<div class="hero-btns mt-3">
-								<a href="#contact" class="btn btn-primary me-2" th:text="#{hero.contact}">Liên hệ tư
+								<a th:href="@{#contact}" class="btn btn-primary me-2" th:text="#{hero.contact}">Liên hệ tư
 									vấn</a>
-								<a href="#services" class="btn btn-outline-primary" th:text="#{hero.services}">Dịch vụ
+								<a th:href="@{#services}" class="btn btn-outline-primary" th:text="#{hero.services}">Dịch vụ
 									của chúng tôi</a>
 							</div>
 
@@ -145,7 +145,10 @@
 							<div class="row gy-4">
 								<div class="col-lg-5">
 									<div class="profile d-flex align-items-center gap-3">
+
 										<img th:src="@{/assets/img/person/person-m-2.webp}" alt="CEO Profile"
+
+
 											class="profile-image">
 										<div>
 											<h4 class="profile-name" th:text="#{about.contact.ceo}">Nguyễn Văn A</h4>

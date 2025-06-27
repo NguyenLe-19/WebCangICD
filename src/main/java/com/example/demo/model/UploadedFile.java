@@ -13,11 +13,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UploadedFile {
-	 private Long id;         
-	    private String fileName;
-	    private String fileType;
-	    private String uploadPath;
-	    private Date uploadDate;
+
+	private Long id;          
+    private String fileName;
+    private String fileType;
+    private String uploadPath;// Đường dẫn cố định trên máy server
+    private Date uploadDate;
+
 
 }
 

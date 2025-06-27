@@ -2,15 +2,15 @@
 <th:block th:fragment="nav(currentPage)">
   <nav id="navmenu" class="navmenu sticky-top" style="background-color: #013a63;">
     <ul class="nav-center">
-      <li><a href="/Home" th:classappend="${currentPage == 'home'} ? 'active'" th:text="#{menu.home}">Home</a></li>
-      <li><a href="/About" th:classappend="${currentPage == 'about'} ? 'active'" th:text="#{menu.about}">About</a></li>
-      <li><a href="/Service" th:classappend="${currentPage == 'service'} ? 'active'" th:text="#{menu.services}">Services</a></li>
-      <li><a href="/awards" th:classappend="${currentPage == 'awards'} ? 'active'" th:text="#{menu.awards}">Achievements & Awards</a></li>
+      <li><a th:href="@{/Home}" th:classappend="${currentPage == 'home'} ? 'active'" th:text="#{menu.home}">Home</a></li>
+      <li><a th:href="@{/About}" th:classappend="${currentPage == 'about'} ? 'active'" th:text="#{menu.about}">About</a></li>
+      <li><a th:href="@{/Service}" th:classappend="${currentPage == 'service'} ? 'active'" th:text="#{menu.services}">Services</a></li>
+      <li><a th:href="@{/awards}" th:classappend="${currentPage == 'awards'} ? 'active'" th:text="#{menu.awards}">Achievements & Awards</a></li>
       <li><a href="#" th:classappend="${currentPage == 'team'} ? 'active'" th:text="#{menu.team}">Team</a></li>
       <li class="dropdown">
         <a href="#"><span th:text="#{menu.dropdown}">Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
         <ul>
-          <li><a href="#" th:text="#{menu.dropdown1}">Upload File</a></li>
+          <li><a th:href="@{/files}" th:text="#{menu.dropdown1}">Upload File</a></li>
           <li class="dropdown">
             <a href="#"><span th:text="#{menu.deepdropdown}">Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
@@ -22,7 +22,7 @@
             </ul>
           </li>
           <li>
-            <a href="/legal-documents" th:classappend="${currentPage == 'legal-documents'} ? 'active'" th:text="#{menu.dropdown2}">
+            <a th:href="@{/legal-documents}" th:classappend="${currentPage == 'legal-documents'} ? 'active'" th:text="#{menu.dropdown2}">
               Legal documents
             </a>
           </li>
@@ -30,9 +30,9 @@
           <li><a href="#" th:text="#{menu.dropdown4}">Dropdown 4</a></li>
         </ul>
       </li>
-      <li><a href="/contact" th:classappend="${currentPage == 'contact'} ? 'active'" th:text="#{menu.contact}">Contact</a></li>
-      <li><a href="?lang=en">EN</a></li>
-      <li><a href="?lang=vi">VI</a></li>
+      <li><a th:href="@{/contact}" th:classappend="${currentPage == 'contact'} ? 'active'" th:text="#{menu.contact}">Contact</a></li>
+      <li><a th:href="@{?lang=en}">EN</a></li>
+      <li><a th:href="@{?lang=vi}">VI</a></li>
     </ul>
     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
   </nav>

@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head><title>Upload File</title></head>
+
+<head>
+	<title>Upload File</title>
+	<div th:replace="fragments/head :: head"></div>
+
+</head>
+
 <body>
-<h2>Upload File</h2>
-<form method="post" enctype="multipart/form-data" th:action="@{/admin/upload}">
-    <input type="file" name="file" required>
-    <button type="submit">Upload</button>
-</form>
-<p th:text="${message}"></p>
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="container py-5">
+		<h2 class="mb-4">📤 Quản trị viên - Tải lên tài liệu</h2>
+
+		<!-- Thông báo thành công/thất bại -->
+		<div th:if="${message}" class="alert alert-info" th:text="${message}"></div>
+
+		<!-- Form upload -->
+		<form method="post" enctype="multipart/form-data" th:action="@{/admin/upload}"
+			class="border rounded p-4 shadow-sm bg-light">
+			<div class="mb-3">
+				<label for="file" class="form-label">Chọn tệp để tải lên</label>
+				<input class="form-control" type="file" id="file" name="file" required>
+			</div>
+			<button type="submit" class="btn btn-success">
+				<i class="fas fa-upload"></i> Upload
+			</button>
+		</form>
+	</div>
+
+
+	<div th:replace="fragments/script :: script"></div>
+
 </body>
+
 </html>

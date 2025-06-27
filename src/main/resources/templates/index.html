@@ -16,7 +16,7 @@
 <body class="index-page">
 
 	<div th:replace="fragments/header :: header"></div>
-	<div th:replace="fragments/nav :: nav(currentPage='home')"></div>
+	<div th:replace="fragments/nav :: nav(currentPage)"></div>
 
 	<main class="main">
 
@@ -87,7 +87,7 @@
 					<div class="col-lg-6 d-flex flex-column align-items-center">
 						<video controls autoplay style="width: 700px; max-width: 700px; height: auto; border-radius: 12px;
 		                      box-shadow: 0 0 10px rgba(0,0,0,0.3); margin-left: 250px; margin-bottom: 50px;">
-							<source src="/assets/video/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+							<source th:src="@{/assets/video/SampleVideo_1280x720_1mb.mp4}" type="video/mp4">
 							Trình duyệt không hỗ trợ video.
 						</video>
 					</div>
@@ -145,7 +145,7 @@
 							<div class="row gy-4">
 								<div class="col-lg-5">
 									<div class="profile d-flex align-items-center gap-3">
-										<img src="assets/img/person/person-m-2.webp" alt="CEO Profile"
+										<img th:src="@{/assets/img/person/person-m-2.webp}" alt="CEO Profile"
 											class="profile-image">
 										<div>
 											<h4 class="profile-name" th:text="#{about.contact.ceo}">Nguyễn Văn A</h4>
@@ -173,15 +173,15 @@
 							<div class="main-video mb-4">
 								<video style="width: 816px; height: auto; max-height: 360px;" class="rounded-4 shadow"
 									controls autoplay muted>
-									<source src="/assets/video/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+									<source th:src="@{/assets/video/SampleVideo_1280x720_1mb.mp4}" type="video/mp4">
 									<p th:text="#{video.unsupported}">Trình duyệt không hỗ trợ video.</p>
 								</video>
 							</div>
 
 							<div class="d-flex align-items-start mt-3 gap-3">
-								<img id="about-image-1" src="/assets/img/about_depot.png" alt="Depot Bình Dương"
+								<img id="about-image-1" th:src="@{/assets/img/about_depot.png}" alt="Depot Bình Dương"
 									class="rounded-4 shadow" style="width: 400px; height: 240px; object-fit: cover;" />
-								<img id="about-image-2" src="/assets/img/about_depot2.png" alt="Depot Bình Dương"
+								<img id="about-image-2" th:src="@{/assets/img/about_depot2.png}" alt="Depot Bình Dương"
 									class="rounded-4 shadow" style="width: 400px; height: 240px; object-fit: cover;" />
 							</div>
 
@@ -199,7 +199,7 @@
 		<section id="org-chart-img" class="section">
 			<div class="container text-center section-title" data-aos="fade-up">
 				<h2 th:text="#{org.structure.title}">Cơ cấu tổ chức</h2>
-				<img src="assets/img/sdtc.jpg" th:alt="#{org.structure.alt}" alt="Sơ đồ tổ chức" class="img-fluid">
+				<img th:src="@{assets/img/sdtc.jpg}" th:alt="#{org.structure.alt}" alt="Sơ đồ tổ chức" class="img-fluid">
 			</div>
 		</section>
 
@@ -385,7 +385,7 @@
 
 					<div class="col-lg-5" data-aos="zoom-out" data-aos-delay="300">
 						<div class="image-wrapper">
-							<img src="assets/img/about/about-portrait-3.webp" alt="" class="img-fluid rounded-4">
+							<img th:src="@{assets/img/about/about-portrait-3.webp}" alt="" class="img-fluid rounded-4">
 						</div>
 					</div>
 				</div>
@@ -410,7 +410,7 @@
 						<div class="col-lg-6 order-lg-2">
 							<div class="image-section" data-aos="fade-left" data-aos-delay="200">
 								<div class="main-image-wrapper">
-									<img src="assets/img/cta/cta-4.webp" alt="CTA Image" class="img-fluid main-img">
+									<img th:src="@{assets/img/cta/cta-4.webp}" alt="CTA Image" class="img-fluid main-img">
 									<div class="overlay-circle circle-1"></div>
 									<div class="overlay-circle circle-2"></div>
 								</div>

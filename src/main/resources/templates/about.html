@@ -3,7 +3,7 @@
 
 <head>
 	<title>Về Chúng Tôi</title>
-	<div th:replace="fragments/head :: head"></div>
+	<th:block th:replace="fragments/head :: head"></th:block>
 
 </head>
 
@@ -58,7 +58,7 @@
 									<div class="row gy-4">
 										<div class="col-lg-5">
 											<div class="profile d-flex align-items-center gap-3">
-												<img src="assets/img/person/person-m-2.webp" alt="CEO Profile"
+												<img th:src="@{assets/img/person/person-m-2.webp}" alt="CEO Profile"
 													class="profile-image">
 												<div>
 													<h4 class="profile-name" th:text="#{about.contact.ceo}">Nguyễn Văn A</h4>
@@ -86,15 +86,15 @@
 									<div class="main-video mb-4">
 										<video style="width: 816px; height: auto; max-height: 360px;" class="rounded-4 shadow"
 											controls autoplay muted>
-											<source src="/assets/video/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+											<source th:src="@{/assets/video/SampleVideo_1280x720_1mb.mp4}" type="video/mp4">
 											<p th:text="#{video.unsupported}">Trình duyệt không hỗ trợ video.</p>
 										</video>
 									</div>
 
 									<div class="d-flex align-items-start mt-3 gap-3">
-										<img src="/assets/img/about_depot.png" alt="Depot Bình Dương" class="rounded-4 shadow"
+										<img th:src="@{/assets/img/about_depot.png}" alt="Depot Bình Dương" class="rounded-4 shadow"
 											style="width: 400px; height: 240px; object-fit: cover;">
-										<img src="/assets/img/about_depot2.png" alt="Depot Bình Dương" class="rounded-4 shadow"
+										<img th:src="@{/assets/img/about_depot2.png}" alt="Depot Bình Dương" class="rounded-4 shadow"
 											style="width: 400px; height: 240px; object-fit: cover;">
 									</div>
 

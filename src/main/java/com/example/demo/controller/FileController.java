@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.model.UploadedFile;
-import com.example.demo.services.UploadedFileService;
+import com.example.demo.services.FileScannerService;
 
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -25,55 +26,47 @@ import jakarta.servlet.http.HttpServletResponse;
 public class FileController {
 
 	@Value("${file.upload-dir}")
-    private String uploadDir;
+	private String uploadDir;
 
-    private final UploadedFileService fileRepo;
+	@GetMapping("/admin/upload")
+	public String showUploadForm() {
+		return "upload";
+	}
 
-    public FileController(UploadedFileService fileRepo) {
-        this.fileRepo = fileRepo;
-    }
 
-    @GetMapping("/admin/upload")
-    public String showUploadForm() {
-        return "upload";
-    }
+	@GetMapping("/files")
+	public String listFiles(Model model) {
+	    FileScannerService scanner = new FileScannerService();
+	    List<UploadedFile> files = scanner.scanFiles();
+	    model.addAttribute("files", files);
+	    return "download";
+	}
 
-    @PostMapping("/admin/upload")
-    public String uploadFile(@RequestParam("file") MultipartFile file, Model model) throws IOException {
-        if (file.isEmpty()) {
-            model.addAttribute("message", "Chưa chọn file!");
-            return "upload";
-        }
 
-        String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
-        Path path = Paths.get(uploadDir, fileName);
-        Files.copy(file.getInputStream(), path);
+	@GetMapping("/files/{id}/download")
+	public void download(@PathVariable Long id, HttpServletResponse response) throws IOException {
+		FileScannerService scanner = new FileScannerService();
+		List<UploadedFile> files = scanner.scanFiles();
 
-        UploadedFile uploaded = new UploadedFile();
-        uploaded.setFileName(file.getOriginalFilename());
-        uploaded.setFileType(file.getContentType());
-        uploaded.setUploadPath(path.toString());
-        uploaded.setUploadDate(new Date());
+		if (id <= 0 || id > files.size()) {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			response.getWriter().write("File không tồn tại!");
+			return;
+		}
 
-        fileRepo.save(uploaded);
-        model.addAttribute("message", "Tải lên thành công!");
-        return "upload";
-    }
+		UploadedFile file = files.get( (int) (id - 1));
+		Path filePath = Path.of(file.getUploadPath());
 
-    @GetMapping("/files")
-    public String listFiles(Model model) {
-        model.addAttribute("files", fileRepo.findAll());
-        return "download";
-    }
+		if (!Files.exists(filePath)) {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			response.getWriter().write("File không tồn tại!");
+			return;
+		}
 
-    @GetMapping("/files/{id}/download")
-    public void download(@PathVariable Long id, HttpServletResponse response) throws IOException {
-        UploadedFile file = fileRepo.findById(id).orElseThrow();
-        Path filePath = Paths.get(file.getUploadPath());
-        response.setContentType(file.getFileType());
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getFileName() + "\"");
-        Files.copy(filePath, response.getOutputStream());
-        response.getOutputStream().flush();
-    }
+		response.setContentType(file.getFileType());
+		response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getFileName() + "\"");
+		Files.copy(filePath, response.getOutputStream());
+		response.getOutputStream().flush();
+	}
+
 }
-

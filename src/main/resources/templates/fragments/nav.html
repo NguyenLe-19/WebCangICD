@@ -14,7 +14,7 @@
 
           <li><a th:href="@{/files}" th:classappend="${currentPage == 'downloadFile'} ? 'active'" th:text="#{menu.dropdown1}">Download File</a></li>
 
-          <li class="dropdown">
+           <!--<li class="dropdown">
             <a href="#"><span th:text="#{menu.deepdropdown}">Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#" th:text="#{menu.deep1}">Deep Dropdown 1</a></li>
@@ -23,14 +23,17 @@
               <li><a href="#" th:text="#{menu.deep4}">Deep Dropdown 4</a></li>
               <li><a href="#" th:text="#{menu.deep5}">Deep Dropdown 5</a></li>
             </ul>
-          </li>
+          </li>-->
+		  
           <li>
             <a th:href="@{/legal-documents}" th:classappend="${currentPage == 'legal-documents'} ? 'active'" th:text="#{menu.dropdown2}">
               Legal documents
             </a>
           </li>
-          <li><a href="#" th:text="#{menu.dropdown3}">Dropdown 3</a></li>
-          <li><a href="#" th:text="#{menu.dropdown4}">Dropdown 4</a></li>
+		  
+          <!-- <li><a href="#" th:text="#{menu.dropdown3}">Dropdown 3</a></li>
+          <li><a href="#" th:text="#{menu.dropdown4}">Dropdown 4</a></li> -->
+		  
         </ul>
       </li>
       <li><a th:href="@{/contact}" th:classappend="${currentPage == 'contact'} ? 'active'" th:text="#{menu.contact}">Contact</a></li>

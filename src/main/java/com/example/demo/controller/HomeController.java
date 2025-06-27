@@ -13,6 +13,7 @@ import com.example.demo.model.LegalDocument;
 public class HomeController {
 	@RequestMapping("Home")
 	public String getHome(Model model) {
+		model.addAttribute("pageTitleKey", "page.title.home");
 		model.addAttribute("currentPage", "home");
 
 		List<Award> awards = List.of(new Award("award.1.title", "Tháng 11, 2022", "award.1.description"),
@@ -35,13 +36,16 @@ public class HomeController {
 
 	@RequestMapping("About")
 	public String getAbout(Model model) {
+
 		model.addAttribute("currentPage", "about");
+		model.addAttribute("pageTitleKey", "page.title.about");
 		return "about";
 	}
 
 	@RequestMapping("Service")
 	public String getService(Model model) {
 		model.addAttribute("currentPage", "service");
+		model.addAttribute("pageTitleKey", "page.title.service");
 		return "service";
 	}
 
@@ -52,12 +56,14 @@ public class HomeController {
 				new Award("award.3.title", "Tháng 5, 2021", "award.3.description"));
 		model.addAttribute("awards", awards);
 		model.addAttribute("currentPage", "awards");
+		model.addAttribute("pageTitleKey", "page.title.awards");
 		return "awards"; // awards.html
 	}
-	
+
 	@RequestMapping("contact")
 	public String getContact(Model model) {
 		model.addAttribute("currentPage", "contact");
+	    model.addAttribute("pageTitleKey", "page.title.contact");
 		return "contact";
 	}
 

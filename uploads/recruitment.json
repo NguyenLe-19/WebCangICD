@@ -1,0 +1,14 @@
+[
+  {
+    "active": true,
+    "titleKey": "recruitment.title",
+    "descriptionKey": "recruitment.description",
+    "noteKey": "recruitment.note"
+  },
+  {
+    "active": false,
+    "titleKey": "recruitment.title",
+    "descriptionKey": "recruitment.description",
+    "noteKey": "recruitment.noteNoRecruit"
+  }
+]

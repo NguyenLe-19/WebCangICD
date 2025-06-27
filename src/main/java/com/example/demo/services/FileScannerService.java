@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Service
+@Service("fileScanService")
 public class FileScannerService {
 	
 	 @Scheduled(fixedDelay = 5000) //5s

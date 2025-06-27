@@ -6,7 +6,8 @@
       <li><a th:href="@{/About}" th:classappend="${currentPage == 'about'} ? 'active'" th:text="#{menu.about}">About</a></li>
       <li><a th:href="@{/Service}" th:classappend="${currentPage == 'service'} ? 'active'" th:text="#{menu.services}">Services</a></li>
       <li><a th:href="@{/awards}" th:classappend="${currentPage == 'awards'} ? 'active'" th:text="#{menu.awards}">Achievements & Awards</a></li>
-      <li><a href="#" th:classappend="${currentPage == 'team'} ? 'active'" th:text="#{menu.team}">Team</a></li>
+	  <li><a th:href="@{/recruitment}" th:classappend="${currentPage == 'recruitment'} ? 'active'" th:text="#{menu.recruitment}">Recruitment</a></li>
+
       <li class="dropdown">
         <a href="#"><span th:text="#{menu.dropdown}">Support</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
         <ul>

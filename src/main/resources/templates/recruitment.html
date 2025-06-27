@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title th:text="#{recruitment.title}">Thông tin tuyển dụng</title>
+	<div th:replace="fragments/head :: head"></div>
+	<style>
+		main.container {
+			max-width: 800px;
+			margin: auto;
+		}
+
+		.recruitment-item {
+			border: 1px solid #ddd;
+			border-radius: 8px;
+			padding: 20px;
+			margin-bottom: 20px;
+			background-color: #fafafa;
+			box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.05);
+		}
+
+		.recruitment-item h4 {
+			color: #014f86;
+			margin-bottom: 12px;
+			font-weight: 700;
+		}
+
+		.recruitment-item p {
+			font-size: 1rem;
+			line-height: 1.5;
+			margin-bottom: 8px;
+		}
+
+		.recruitment-item .note {
+			font-style: italic;
+			color: #888;
+			background-color: #fff3cd;
+			padding: 10px;
+			border-radius: 5px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div th:replace="fragments/nav :: nav(currentPage='recruitment')"></div>
+
+	<main class="container py-4">
+		<div th:each="info : ${recruitments}" class="recruitment-item">
+			<h4 th:text="${#messages.msg(info.titleKey)}">Title</h4>
+
+			<p th:if="${info.active}" th:text="${#messages.msg(info.descriptionKey)}">Description</p>
+
+			<p th:unless="${info.active}" class="note" th:text="${#messages.msg(info.noteKey)}">Note</p>
+		</div>
+	</main>
+
+
+	<div th:replace="fragments/footer :: footer"></div>
+	<div th:replace="fragments/script :: script"></div>
+</body>
+
+</html>

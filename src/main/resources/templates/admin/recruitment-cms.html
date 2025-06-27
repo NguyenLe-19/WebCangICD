@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CMS - Quản lý tuyển dụng</title>
+</head>
+<body>
+    <h1>Chỉnh sửa nội dung tuyển dụng</h1>
+
+    <div th:if="${success}" style="color: green;">✅ [[${success}]]</div>
+    <div th:if="${error}" style="color: red;">❌ [[${error}]]</div>
+
+    <form th:action="@{/admin/recruitment-cms}" method="post">
+        <table>
+            <tr th:each="entry : ${recruitmentProps}">
+                <td><label th:text="${entry.key}">Key</label></td>
+                <td><input type="text" th:name="${entry.key}" th:value="${entry.value}" size="80" /></td>
+            </tr>
+        </table>
+        <button type="submit">💾 Lưu thay đổi</button>
+    </form>
+</body>
+</html>

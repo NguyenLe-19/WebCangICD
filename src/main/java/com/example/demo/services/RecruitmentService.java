@@ -14,32 +14,36 @@ import java.util.List;
 @Service("recruitmentService")
 public class RecruitmentService {
 
-	private final ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
-	public RecruitmentService(ObjectMapper objectMapper) {
-		this.objectMapper = objectMapper;
-	}
+    private final Path jsonFilePath;
 
-	public List<RecruitmentInfo> getRecruitments() {
-		try {
-			Path path = Paths.get(System.getProperty("user.dir"), "uploads", "recruitment.json");
-			File file = path.toFile();
-			System.out.println("📄 Đường dẫn file JSON: " + file.getAbsolutePath());
+    public RecruitmentService(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+        this.jsonFilePath = Paths.get(System.getProperty("user.dir"), "uploads", "recruitment.json");
+    }
 
-			if (!file.exists()) {
-				System.out.println("⚠️ File không tồn tại.");
-				return List.of();
-			}
+    public List<RecruitmentInfo> getRecruitments() {
+        try {
+            File file = jsonFilePath.toFile();
+            if (!file.exists()) {
+                return List.of();
+            }
+            return objectMapper.readValue(file, new TypeReference<List<RecruitmentInfo>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+            return List.of();
+        }
+    }
 
-			List<RecruitmentInfo> list = objectMapper.readValue(file, new TypeReference<List<RecruitmentInfo>>() {
-			});
-			System.out.println("✅ Đã đọc " + list.size() + " mục tuyển dụng.");
-			return list;
-
-		} catch (IOException e) {
-			e.printStackTrace();
-			return List.of();
-		}
-	}
-
+    public boolean saveRecruitments(List<RecruitmentInfo> recruitments) {
+        try {
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(jsonFilePath.toFile(), recruitments);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
+

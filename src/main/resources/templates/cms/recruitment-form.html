@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Quản lý tuyển dụng</title>
+</head>
+
+<body>
+    <h2>Quản lý thông tin tuyển dụng</h2>
+
+    <div th:if="${message}" th:text="${message}" style="color:green;"></div>
+
+    <form th:action="@{/cms/recruitment/save}" method="post" th:object="${recruitmentFormWrapper}">
+
+        <table border="1" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Active</th>
+                    <th>Title Key</th>
+                    <th>Description Key</th>
+                    <th>Note Key</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="info, iterStat : *{recruitments}">
+                    <td>
+                        <input type="checkbox" th:field="*{recruitments[__${iterStat.index}__].active}" />
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{recruitments[__${iterStat.index}__].titleKey}" />
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{recruitments[__${iterStat.index}__].descriptionKey}" />
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{recruitments[__${iterStat.index}__].noteKey}" />
+                    </td>
+                    <td>
+                        <button type="button" onclick="removeRow(this)">Xóa</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" onclick="addRow()">Thêm mới</button>
+        <button type="submit">Lưu</button>
+    </form>
+
+    <script>
+        function removeRow(button) {
+            const row = button.closest("tr");
+            row.remove();
+        }
+
+        function addRow() {
+            const tbody = document.querySelector("tbody");
+            const index = tbody.children.length;
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td><input type="checkbox" name="recruitments[${index}].active" /></td>
+                <td><input type="text" name="recruitments[${index}].titleKey" /></td>
+                <td><input type="text" name="recruitments[${index}].descriptionKey" /></td>
+                <td><input type="text" name="recruitments[${index}].noteKey" /></td>
+                <td><button type="button" onclick="removeRow(this)">Xóa</button></td>
+            `;
+            tbody.appendChild(row);
+        }
+    </script>
+
+</body>
+
+</html>

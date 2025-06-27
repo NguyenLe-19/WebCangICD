@@ -504,6 +504,27 @@ h6 {
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
+footer.footer {
+  color: white;
+}
+
+footer.footer a,
+footer.footer p,
+footer.footer h4,
+footer.footer span,
+footer.footer li,
+footer.footer ul {
+  color: white;
+}
+
+footer.footer a:hover {
+  color: #aad4ff; /* màu sáng hơn để hover dễ thấy */
+}
+footer.footer a {
+  color: white !important;
+}
+
+
 .footer {
   color: var(--default-color);
   background-color: var(--background-color);

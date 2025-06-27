@@ -12,18 +12,30 @@
   "uploadDate" : 1750819868852
 }, {
   "id" : 3,
+  "fileName" : "ICD_logo-removebg-preview.png",
+  "fileType" : "image/png",
+  "uploadPath" : "D:\\FTPsite\\web\\icd\\wwwroot\\download\\ICD_logo-removebg-preview.png",
+  "uploadDate" : 1750825384676
+}, {
+  "id" : 4,
   "fileName" : "Introduction.pdf",
   "fileType" : "application/pdf",
   "uploadPath" : "D:\\FTPsite\\web\\icd\\wwwroot\\download\\Introduction.pdf",
   "uploadDate" : 1750819868904
 }, {
-  "id" : 4,
+  "id" : 5,
   "fileName" : "Presentation.pdf",
   "fileType" : "application/pdf",
   "uploadPath" : "D:\\FTPsite\\web\\icd\\wwwroot\\download\\Presentation.pdf",
   "uploadDate" : 1750819869018
 }, {
-  "id" : 5,
+  "id" : 6,
+  "fileName" : "sdtc.jpg",
+  "fileType" : "image/jpeg",
+  "uploadPath" : "D:\\FTPsite\\web\\icd\\wwwroot\\download\\sdtc.jpg",
+  "uploadDate" : 1750905728802
+}, {
+  "id" : 7,
   "fileName" : "TemplateGetin.xlsx",
   "fileType" : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   "uploadPath" : "D:\\FTPsite\\web\\icd\\wwwroot\\download\\TemplateGetin.xlsx",

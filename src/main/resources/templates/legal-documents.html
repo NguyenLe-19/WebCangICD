@@ -11,49 +11,240 @@
 	<div th:replace="fragments/header :: header"></div>
 	<div th:replace="fragments/nav :: nav(currentPage='legal-documents')"></div>
 
-	
-	<main class="main">
-		
-		    <section id="legal-documents" class="section">
-		      <div class="container" data-aos="fade-up">
-		        <div class="section-title text-center">
-		          <h2 th:text="#{legal.title}">Văn bản pháp lý</h2>
-		          <p th:text="#{legal.subtitle}">Các văn bản quy định pháp luật liên quan đến lĩnh vực hoạt động của công ty</p>
-		        </div>
 
-		        <div class="table-responsive">
+	<main class="main">
+
+		<section id="legal-documents" class="section">
+			<div class="container" data-aos="fade-up">
+				<div class="section-title text-center">
+					<h2 th:text="#{legal.title}">Văn bản pháp lý</h2>
+					<p th:text="#{legal.subtitle}">Các văn bản quy định pháp luật liên quan đến lĩnh vực hoạt động của
+						công ty</p>
+				</div>
+
+				<div class="table-responsive">
 					<table class="table table-bordered table-hover align-middle text-start">
-					  <thead class="table-light">
-					    <tr>
-					      <th th:text="#{legal.code}">Số hiệu</th>
-					      <th th:text="#{legal.date}">Ngày</th>
-					      <th th:text="#{legal.issuer}">Nơi ban hành</th>
-					      <th th:text="#{legal.summary}">Trích yếu</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-					    <tr th:each="doc : ${legalDocs}">
-					      <td th:text="${doc.code}">39/2018/TT-BTC</td>
-					      <td th:text="${doc.date}">20-04-2018</td>
-					      <td th:text="${#messages.msg(doc.issuerKey)}">Bộ Tài Chính</td>
-					      <td th:text="${#messages.msg(doc.summaryKey)}">Nội dung trích yếu</td>
-					    </tr>
-					  </tbody>
+						<thead class="table-light">
+							<tr>
+								<th th:text="#{legal.code}">Số hiệu</th>
+								<th th:text="#{legal.date}">Ngày</th>
+								<th th:text="#{legal.issuer}">Nơi ban hành</th>
+								<th th:text="#{legal.summary}">Trích yếu</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="doc : ${legalDocs}">
+								<td th:text="${doc.code}">39/2018/TT-BTC</td>
+								<td th:text="${doc.date}">20-04-2018</td>
+								<td th:text="${#messages.msg(doc.issuerKey)}">Bộ Tài Chính</td>
+								<td th:text="${#messages.msg(doc.summaryKey)}">Nội dung trích yếu</td>
+							</tr>
+						</tbody>
 					</table>
 
 
-		        </div>
-		      </div>
-		    </section>
-		 
+				</div>
+			</div>
+		</section>
 
 
+		<!-- Clients Section -->
+		<section id="clients" class="clients section">
+
+			<div data-aos="fade-up" data-aos-delay="100">
+
+				<div class="clients-slider swiper init-swiper">
+					<script type="application/json" class="swiper-config">
+					        {
+					          "loop": true,
+					          "speed": 6000,
+					          "autoplay": {
+					            "delay": 1,
+					            "disableOnInteraction": false
+					          },
+					          "centeredSlides": true,
+					          "slideToClickedSlide": true,
+					          "slidesPerView": "auto",
+					          "spaceBetween": 40,
+					          "breakpoints": {
+					            "320": {
+					              "slidesPerView": 2,
+					              "spaceBetween": 20
+					            },
+					            "640": {
+					              "slidesPerView": 3,
+					              "spaceBetween": 20
+					            },
+					            "992": {
+					              "slidesPerView": 4,
+					              "spaceBetween": 30
+					            },
+					            "1200": {
+					              "slidesPerView": 6,
+					              "spaceBetween": 40
+					            }
+					          }
+					        }
+					      </script>
+
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/cma.png}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/cmit.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/cos.png}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/ha.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/hlag.png}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/hmm.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/ial.png}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/mae.gif}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/msc.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/one.png}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/oocl.png}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/pil.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/rcl.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/sitc.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/snp.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/spitc.png}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/tcl.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/tsl.png}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/tsn.png}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/vict.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/wh.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/yml.png}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/yml1.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+						<div class="swiper-slide">
+							<div class="client-logo">
+								<img th:src="@{/assets/img/clients/zim.jpg}" class="img-fluid" alt="">
+							</div>
+						</div><!-- End Client Item -->
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</section><!-- /Clients Section -->
 	</main>
 	<div th:replace="fragments/footer :: footer"></div>
 
 	<div th:replace="fragments/script :: script"></div>
 
-	
+
 </body>
 
 </html>

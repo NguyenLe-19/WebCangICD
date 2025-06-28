@@ -1022,7 +1022,7 @@ section,
 }
 
 .clients .swiper-slide {
-	height: 120px;
+	height: 140px;
 	/* đảm bảo tất cả khung có cùng chiều cao */
 	display: flex;
 	align-items: center;
@@ -1039,8 +1039,9 @@ section,
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
-	padding: 10px;
+	padding: 5px;
 	/* giảm padding: top-bottom 10px, left-right 20px */
+	margin-right: 40px;
 	height: 100%;
 	/* chiếm hết chiều cao của swiper-slide */
 	width: 100%;
@@ -1048,13 +1049,15 @@ section,
 }
 
 .clients .client-logo img {
-	max-height: 100px;
-	max-width: 90%;
+	max-height: 100%;
+	max-width: 100%;
 	transition: 0.3s;
 	opacity: 0.5;
 	filter: grayscale(100);
 	object-fit: contain;
 	/* đảm bảo hình không méo nếu cần */
+	
+	
 }
 
 .clients .client-logo img:hover {

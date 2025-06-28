@@ -1,1 +1,31 @@
-[ ]
+[ {
+  "id" : 1,
+  "fileName" : "Brochure.pdf",
+  "fileType" : "application/pdf",
+  "uploadPath" : "D:\\FTPsite\\web\\icd\\wwwroot\\download\\Brochure.pdf",
+  "uploadDate" : 1750819868807
+}, {
+  "id" : 2,
+  "fileName" : "DanhMuc.xlsx",
+  "fileType" : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "uploadPath" : "D:\\FTPsite\\web\\icd\\wwwroot\\download\\DanhMuc.xlsx",
+  "uploadDate" : 1750819868852
+}, {
+  "id" : 3,
+  "fileName" : "Introduction.pdf",
+  "fileType" : "application/pdf",
+  "uploadPath" : "D:\\FTPsite\\web\\icd\\wwwroot\\download\\Introduction.pdf",
+  "uploadDate" : 1750819868904
+}, {
+  "id" : 4,
+  "fileName" : "Presentation.pdf",
+  "fileType" : "application/pdf",
+  "uploadPath" : "D:\\FTPsite\\web\\icd\\wwwroot\\download\\Presentation.pdf",
+  "uploadDate" : 1750819869018
+}, {
+  "id" : 5,
+  "fileName" : "TemplateGetin.xlsx",
+  "fileType" : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "uploadPath" : "D:\\FTPsite\\web\\icd\\wwwroot\\download\\TemplateGetin.xlsx",
+  "uploadDate" : 1750819869052
+} ]
